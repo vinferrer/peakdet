@@ -39,10 +39,10 @@ Unittest_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
-      - pip install pytest
   Running_unit_tests_script:
     - apt-get install -y make curl
     - source activate $PWD/conda-env
+    - pip install pytest
     - make unittest
     - bash <(curl -s https://codecov.io/bash)
 
@@ -63,11 +63,11 @@ Integration_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
-      - pip install pytest
   Running_unit_tests_script:
     - apt-get install -y make curl
     - source activate $PWD/conda-env
     - PATH=/home/test_user/.local/bin:$PATH
+    - pip install pytest
     - make integration
     - bash <(curl -s https://codecov.io/bash)
 
@@ -83,10 +83,10 @@ Style_check_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
-      - pip install flake8
   Lintin_script:
   - apt-get install -y make
   - source activate $PWD/conda-env
+  - pip install flake8
   - make lint
 
 Build_docs_task:
