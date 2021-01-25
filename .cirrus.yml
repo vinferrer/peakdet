@@ -83,6 +83,7 @@ Style_check_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
+      - pip install flake8
   Lintin_script:
   - apt-get install -y make
   - source activate $PWD/conda-env
