@@ -18,6 +18,7 @@ makeenv_task:
     populate_script:
       - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
       - source activate $PWD/conda-env
+      - pip install flake8 pytest
       - pip install -e '.[test,doc]'
   activate_script: source activate $PWD/conda-env
 
