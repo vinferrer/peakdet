@@ -39,6 +39,7 @@ Unittest_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
+      - pip install pytest
   Running_unit_tests_script:
     - apt-get install -y make curl
     - source activate $PWD/conda-env
@@ -62,6 +63,7 @@ Integration_task:
       - cat setup.py
     populate_script:
       - source activate $PWD/conda-env
+      - pip install pytest
   Running_unit_tests_script:
     - apt-get install -y make curl
     - source activate $PWD/conda-env
@@ -116,7 +118,7 @@ Integration_windows_task:
     fingerprint_script: echo 362
     reupload_on_changes: true
     populate_script:
-      - pip install msvc-runtime
+      - pip install msvc-runtime flake8 pytest
       - pip install Cython
       - pip install -e .[test,doc]
   Running_integration_script:
