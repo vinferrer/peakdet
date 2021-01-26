@@ -1,6 +1,6 @@
 # global default
 container:
-  image: .ci/miniconda3
+  dockerfile: .ci/miniconda3
   cpu: 1
 
 makeenv_task:
