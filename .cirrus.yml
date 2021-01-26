@@ -143,6 +143,7 @@ Unittest_windows_task:
     reupload_on_changes: true
     populate_script:
       - pip install msvc-runtime
+      - pip install  wxPython
       - pip install -e .[test,doc]
   Running_unittest_script:
     - choco install make -y --no-progress
