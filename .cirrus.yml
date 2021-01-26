@@ -1,6 +1,6 @@
 # global default
 container:
-  image: continuumio/miniconda3
+  image: .ci/miniconda3
   cpu: 1
 
 makeenv_task:
@@ -17,7 +17,6 @@ makeenv_task:
       - cat setup.py
     populate_script:
       - apt-get update
-      - apt-get install -y build-essential libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
       - source activate $PWD/conda-env
       - pip install -e '.[test,doc]'
