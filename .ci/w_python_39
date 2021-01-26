@@ -12,7 +12,7 @@ RUN powershell -NoLogo -NoProfile -Command \
     python -m pip install --upgrade pip ; \
     pip install --upgrade certifi ; \
     pip install wheel ; \
-    pip install numpy matplotlib Cython PyYAML h5py scipy
+    pip install numpy matplotlib Cython PyYAML h5py scipy; \
     pip install -U \
     -f  https://files.pythonhosted.org/packages/bd/6e/ce469293cf6f7e391c11ec31161a9d6d0f2acffd05da2fb27bb3b3d81d1e/wxPython-4.0.4-cp37-cp37m-win_amd64.whl \
     wxPython
