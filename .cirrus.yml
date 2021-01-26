@@ -17,11 +17,7 @@ makeenv_task:
       - cat setup.py
     populate_script:
       - apt-get update
-      - apt-get install -y libgtk2.0-dev libgtk-3-dev \
-        libjpeg-dev libtiff-dev \
-        libsdl1.2-dev  libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
-        libnotify-dev freeglut3 freeglut3-dev libsm-dev \
-        libwebkitgtk-dev libwebkitgtk-3.0-dev
+      - apt-get install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
       - source activate $PWD/conda-env
       - pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04 wxPython
