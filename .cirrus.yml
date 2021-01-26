@@ -17,7 +17,7 @@ makeenv_task:
       - cat setup.py
     populate_script:
       - apt-get update
-      - apt-get install -y gtk libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+      - apt-get install -y gtk libgtk2.0 libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
       - source activate $PWD/conda-env
       - pip install -U -f https://extras.wxpython.org/wxPython4/extras/linux/gtk3/ubuntu-16.04 wxPython
