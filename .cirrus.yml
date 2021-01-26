@@ -20,7 +20,7 @@ makeenv_task:
       - apt-get install -qq -y build-essential libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
       - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
       - source activate $PWD/conda-env
-      - conda install -y -c conda-forge wxpython
+      - conda install -y -c conda-forge wxpython=4.1
       - pip install -e '.[test,doc]'
   activate_script: source activate $PWD/conda-env
 
