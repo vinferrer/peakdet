@@ -14,7 +14,7 @@ lint:
 
 unittest:
 	@pip install -e ".[test]"
-	@py.test --skipintegration --cov-append --cov-report term-missing --cov=phys2bids peakdet/
+	@py.test --cov-append --cov-report term-missing --cov=phys2bids peakdet/
 
 integration:
 	@pip install -e ".[test]"
