@@ -25,7 +25,7 @@ RUN powershell -NoLogo -NoProfile -Command \
     echo $env:path; \
     python -m pip install --upgrade pip ; \
     pip install --upgrade certifi ; \
-    choco install -y miniconda3; \
+    choco install -y miniconda3 --params="'/AddToPath:1'"; \
     refreshenv; \
     conda install conda-build git svn anaconda-client anaconda-build; \
     conda clean --all; \
