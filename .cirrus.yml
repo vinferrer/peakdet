@@ -132,7 +132,7 @@ Build_docs_task:
 Unittest_windows_task:
   windows_container:
     matrix:
-      - dockerfile: .ci/w_python_39
+      - dockerfile: .ci/w_miniconda
       - dockerfile: .ci/w_python_38
       - dockerfile: .ci/w_python_37
       - dockerfile: .ci/w_python_36
