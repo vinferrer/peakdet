@@ -129,7 +129,7 @@ Build_docs_task:
 #     - pip install msvc-runtime
 #     - make integration
 
-miniconda_task:
+Unittest_windows_task:
   windows_container:
     dockerfile: .ci/w_miniconda
     cpu: 1
