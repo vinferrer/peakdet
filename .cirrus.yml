@@ -165,6 +165,7 @@ miniconda_task:
       - pip install msvc-runtime
       - conda create -yq --prefix  C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\conda-env python=%PYTHON%
       - activate C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\conda-env
+      - conda install -y -c conda-forge wxpython=4.1
       - pip install -e .[test,doc]
   Running_unittest_script:
     - choco install make -y --no-progress
