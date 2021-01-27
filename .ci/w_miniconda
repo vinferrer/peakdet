@@ -13,6 +13,19 @@ WORKDIR C:/Users/Administrator
 # once the normal installer works properly in a container.
 # Get and install the latest miniconda3 installer.
 # Run clean after install to eliminate unneeded tarballs.
+RUN powershell -NoLogo -NoProfile -Command \
+    choco install -y microsoft-visual-cpp-build-tools ; \
+    choco install -y --no-progress python --version=3.9 ; \
+    choco install -y --no-progress make ; \
+    refreshenv ; \
+    $env:Path += ';c:\python39'; \
+    $env:Path += ';c:\python39\Scripts'; \
+    $env:Path += ';c:\python39\lib\site-packages'; \
+    refreshenv; \
+    echo $env:path; \
+    python -m pip install --upgrade pip ; \
+    pip install --upgrade certifi ;
+
 RUN powershell -Command " \
     $url = \"https://repo.continuum.io/miniconda/Miniconda3-latest-Windows-x86_64.exe\"; \
     $client = new-object System.Net.WebClient; \
@@ -60,22 +73,6 @@ RUN powershell -Command " \
     & \"C:/Program Files/7-zip/7z.exe\" x dependency_walker.zip \"*.*\" -odependency_walker -y -r | Write-Output; \
     del dependency_walker.zip; \
     "
-
-# Install Chocolatey
-# Some packages fail to install inside a docker container,
-# but it seems worthwhile to have it there anyway.
-RUN powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))"
-
-# Appending to the existing path wasn't working in the Dockerfile,
-# So set the full system path here. The first part is the default.
-# The last bit is the part added in this Dockerfile.
-ENV PATH=C:\\Windows\\system32;C:\\Windows;C:\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Users\\Administrator\\miniconda3;C:\\Users\\Administrator\\miniconda3\\Scripts;C:\\Users\\Administrator\\miniconda3\\Library\\bin;C:\\ProgramData\\chocolatey\\bin;C:\\Program\ Files\\7-zip;C:\\Users\\Administrator\\dependency_walker
-
-# Configure conda so that the -y flag isn't needed everywhere.
-RUN conda config --set always_yes true && conda config --set anaconda_upload false
-
-# Configure chocolatey so that the -y flag isn't needed everywhere.
-RUN chocolatey feature enable -n allowGlobalConfirmation
 
 # Likely due to the same issue as the installer fail, the menus don't
 # install properly, so we need to guard against the command stopping
