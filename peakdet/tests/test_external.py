@@ -6,6 +6,7 @@ from peakdet.tests import utils as testutils
 
 DATA = testutils.get_test_data_path('rtpeaks.csv')
 
+
 @pytest.mark.xfail
 def test_load_rtpeaks():
     for channel in [1, 2, 9]:
