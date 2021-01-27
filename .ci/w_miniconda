@@ -34,21 +34,6 @@ RUN powershell -Command " \
     del miniconda3.exe; \
     ./miniconda3/Scripts/conda clean --all -y; \
     "
-
-# Download and install MSVC Build tools 2015
-# Sleep for a little bit after the command finishes running
-# in case the antivirus is still holding a file handle to the
-# installer. Otherwise intermittent failures to delete the
-# executable occur.
-RUN powershell -Command " \
-    $url = \"http://go.microsoft.com/fwlink/?LinkId=691126\"; \
-    $client = new-object System.Net.WebClient; \
-    $client.DownloadFile( $url, \"msvc_build_tools.exe\"); \
-    ./msvc_build_tools.exe /full /q | Write-Output; \
-    Start-Sleep -s 20; \
-    del msvc_build_tools.exe; \
-    "
-
 # What the install command for MSVC build tools would look like with logging enabled:
 # RUN msvc_build_tools.exe /full /q /l msvc_build_tools_log.txt | more
 
