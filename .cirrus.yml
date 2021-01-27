@@ -155,8 +155,8 @@ miniconda_task:
     cpu: 1
   env:
     matrix:
-      - $env:Python = 3.9
-      - $env:Python = 3.8
+      PYTHON: 3.9
+      PYTHON: 3.8
   environment_cache:
     folder: shared39
     fingerprint_script: echo 362
