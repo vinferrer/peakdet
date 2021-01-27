@@ -26,9 +26,9 @@ RUN powershell -NoLogo -NoProfile -Command \
     python -m pip install --upgrade pip ; \
     pip install --upgrade certifi ; \
     choco install -y miniconda3 --params="'/AddToPath:1'"; \
-    $env:Path += ';'C:\tools\miniconda3'; \
-    $env:Path += ';'C:\tools\miniconda3\Scripts'; \
-    $env:Path += ';'C:\tools\miniconda3\lib\site-packages'; \
+    $env:Path += ';C:\tools\miniconda3'; \
+    $env:Path += ';C:\tools\miniconda3\Scripts'; \
+    $env:Path += ';C:\tools\miniconda3\lib\site-packages'; \
     refreshenv; \
     conda install conda-build git svn anaconda-client anaconda-build; \
     conda clean --all; \
