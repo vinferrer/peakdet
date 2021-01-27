@@ -169,4 +169,5 @@ miniconda_task:
       - pip install -e .[test,doc]
   Running_unittest_script:
     - choco install make -y --no-progress
+    - activate C:\Users\ContainerAdministrator\AppData\Local\Temp\cirrus-ci-build\conda-env
     - make unittest
