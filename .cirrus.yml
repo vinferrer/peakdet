@@ -151,7 +151,7 @@ Unittest_windows_task:
 
 miniconda_task:
   windows_container:
-    - dockerfile: .ci/w_miniconda
+    dockerfile: .ci/w_miniconda
     cpu: 1
   env:
     matrix:
