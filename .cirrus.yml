@@ -163,7 +163,8 @@ miniconda_task:
     reupload_on_changes: true
     populate_script:
       - pip install msvc-runtime
-      - conda create -yq --prefix  $PWD/conda-env python=$PYTHON
+      - conda create -yq --prefix  $PWD/conda-env python=%PYTHON%
+      - source $PWD/conda-env
       - pip install -e .[test,doc]
   Running_unittest_script:
     - choco install make -y --no-progress
